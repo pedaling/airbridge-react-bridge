@@ -1,0 +1,5 @@
+rootProject.name = 'AirbridgeSampleApp'
+include ':react-native-airbridge-bridge'
+project(':react-native-airbridge-bridge').projectDir = new File(rootProject.projectDir, '../../android')
+
+include ':app'
