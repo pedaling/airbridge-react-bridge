@@ -16,54 +16,96 @@ var AirbridgeBridgeApis = {
         AirbridgeBridge.setUser(userId);
     },
 
-    sendViewHome: function(o) {
-        AirbridgeBridge.sendViewHome(o);
+    goal: function(category='', action='', label='', value=0) {
+        AirbridgeBridge.goal(category, action, label, value);
     },
 
-    makeUserObject: function(action='', label='', userId='', userEmail='') {
-        return {
-            action: action,
-            label: label,
-            userId: userId,
-            userEmail: userEmail
-        }
+    signIn: function(userObj) {
+        AirbridgeBridge.signIn(userObj);
     },
 
-    makeProduct: function(productId='', name='', currency='', price=0, quantity=0, positionInList=0) {
+    signUp: function(userObj) {
+        AirbridgeBridge.signUp(userObj);
+    },
+
+    sendViewHome: function() {
+        AirbridgeBridge.sendViewHome();
+    },
+
+    sendViewProductList: function(listId='', products=[]) {
+        AirbridgeBridge.sendViewProductList(listId, products);
+    },
+
+    sendViewSearchResult: function(query='', products=[]) {
+        AirbridgeBridge.sendViewSearchResult(query, products);
+    },
+
+    sendViewProductDetail: function(product) {
+        AirbridgeBridge.sendViewProductDetail(product);
+    },
+
+    sendAddToCart: function(product, cartId='', currency='KRW', totalValue=0) {
+        AirbridgeBridge.sendAddToCart(product, cartId, currency, totalValue);
+    },
+
+    sendCompleteOrder: function(products, transactionId='', isInAppPurchase=false, currency='KRW', totalValue=0) {
+        AirbridgeBridge.sendCompleteOrder(products, transactionId, isInAppPurchase, currency, totalValue);
+    },
+
+    expireUser: function() {
+        AirbridgeBridge.expireUser();
+    },
+
+
+    setCustomSessionTimeOut: function(timeout_msecs=300) {
+        AirbridgeBridge.setCustomSessionTimeOut(timeout_msecs);
+    },
+
+    deeplinkLaunched: function(uri) {
+        AirbridgeBridge.deeplinkLaunched(uri);
+    },
+    /**
+     * This function return user object which is used in some analytics functions such as signIn and signUp.
+     * We wrapped basic object in order to support default parameters.
+     *
+     * @param {object} user
+     * @user {
+     *      @userId: The identifier who call some function in mobile.
+     *      @userEmail: The identifier's email address.
+     * }
+     * @returns {{userId: string, userEmail: string}}
+     */
+    makeUserObject: function(user) {
         return {
-            productId: productId,
-            name: name,
-            currency: currency,
-            price: price,
-            quantity: quantity,
-            positionInList: positionInList
-        }
-    }
- // setUser(String userId)
- //
- // signIn(String action, String label, String userId, String userEmail)
- //
- //
- // signUp(String action, String label, String userId, String userEmail)
- //
- // sendViewHome()
- //
- // sendViewProductList()
- //
- // sendViewSearchResult()
- //
- // sendCompleteOrder()
- //
- // expireuser()
- //
- // goal(String category, String action, String label, int value)
- //
- // setCustomSessionTimeOut()
- //
- //
- // setWifiInfoUsability()
- //
- // handleURL()
+            userId: user['userId'] ? user['userId'] : '',
+            userEmail: user['userEmail'] ? user['userEmail'] : ''
+        };
+    },
+
+    /**
+     * This function return product object which is used in purchase analytics such as sendAddToCart, etc.
+     *
+     * @param product
+     * @product {
+     *      @productId: Product unique identifier. You need to input this value when use dsp product. (default '')
+     *      @name: Product name. (default '')
+     *      @currency: Product currency. (default 'KRW')
+     *      @price: Product price. (default 0)
+     *      @quantity: Purchased quantity. (default 0)
+     *      @positionInList: Product position in list. (default 0)
+     * }
+     * @returns {{productId: string, name: string, currency: string, price: number, quantity: number, positionInList: number}}
+     */
+    makeProduct: function(product) {
+        return {
+            productId: product['productId'] ? product['productId'] : '',
+            name: product['name'] ? product['name'] : '',
+            currency: product['currency'] ? product['currency'] : 'KRW',
+            price: product['price'] ? product['price'] : 0,
+            quantity: product['quantity'] ? product['quantity'] : 0,
+            positionInList: product['positionInList'] ? product['positionInList'] : 0
+        };
+    },
 };
 
 module.exports = AirbridgeBridgeApis;
