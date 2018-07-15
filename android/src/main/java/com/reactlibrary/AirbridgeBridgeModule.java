@@ -204,7 +204,7 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void expireuser() {
+    public void expireUser() {
         SignOutEvent event = new SignOutEvent();
         AirBridge.getTracker().send(event);
     }

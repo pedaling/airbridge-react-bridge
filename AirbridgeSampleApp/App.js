@@ -52,12 +52,12 @@ export default class App extends Component<Props> {
     }
 
     signIn() {
-        _user = AirbridgeApi.makeUserObject(action='testAction', userId='UserAB');
+        _user = AirbridgeApi.makeUserObject({action: 'testAction', userId: 'UserAB'});
         AirbridgeApi.signIn(_user);
     }
 
     signUp() {
-        _user = AirbridgeApi.makeUserObject(action='testAction', userId='UserAB');
+        _user = AirbridgeApi.makeUserObject({action: 'testAction', userId: 'UserAB'});
         AirbridgeApi.signUp(_user);
     }
 
@@ -76,28 +76,29 @@ export default class App extends Component<Props> {
     }
 
     sendViewProductDetail() {
-
         AirbridgeApi.sendViewProductDetail(AirbridgeApi.makeProduct({productId: '1', currency: 'KRW', price: 100}));
     }
 
     sendAddToCart() {
-        AirbridgeApi.sendAddToCart()
+        AirbridgeApi.sendAddToCart(AirbridgeApi.makeProduct({productId: '1', currency: 'KRW', price: 100}),
+            cartId='Cart-123', currency='KRW', totalValue=10000);
     }
 
     sendCompleteOrder() {
-
+        _l = [AirbridgeApi.makeProduct({productId: '1', price: 100}), AirbridgeApi.makeProduct({productId: '2', quantity: 3})];
+        AirbridgeApi.sendCompleteOrder(_l, 'Transaction-123', true, 'KRW', 10000);
     }
 
     expireUser() {
-
+        AirbridgeApi.expireUser();
     }
 
     setCustomSessionTimeOut() {
-
+        AirbridgeApi.setCustomSessionTimeOut(100);
     }
 
     deeplinkLaunched() {
-
+        AirbridgeApi.deeplinkLaunched('http://deeplink?q=123');
     }
 
     componentDidMount() {
