@@ -56,7 +56,6 @@ var AirbridgeBridgeApis = {
         AirbridgeBridge.expireUser();
     },
 
-
     setCustomSessionTimeOut: function(timeout_msecs=300) {
         AirbridgeBridge.setCustomSessionTimeOut(timeout_msecs);
     },
@@ -96,14 +95,15 @@ var AirbridgeBridgeApis = {
      * }
      * @returns {{productId: string, name: string, currency: string, price: number, quantity: number, positionInList: number}}
      */
+
     makeProduct: function(product) {
         return {
-            productId: product['productId'] ? product['productId'] : '',
-            name: product['name'] ? product['name'] : '',
-            currency: product['currency'] ? product['currency'] : 'KRW',
-            price: product['price'] ? product['price'] : 0,
-            quantity: product['quantity'] ? product['quantity'] : 0,
-            positionInList: product['positionInList'] ? product['positionInList'] : 0
+            productId: product['productId'] || '',
+            name: product['name'] || '',
+            currency: product['currency'] || 'KRW',
+            price: product['price'] || 0,
+            quantity: product['quantity'] || 0,
+            positionInList: product['positionInList'] || 0
         };
     },
 };
