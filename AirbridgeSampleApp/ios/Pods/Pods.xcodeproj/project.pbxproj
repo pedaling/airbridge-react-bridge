@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		604D1885043FF0E3E847D0158D725801 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C4EB6475B464A1F4BB27E0761063A89F /* Pods-AirbridgeSampleApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A655515C91F7EF505168562824FC802 /* Pods-AirbridgeSampleApp-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09DAE31B503E0C5280B02EA5369F608A /* ABObserver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABObserver.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABObserver.h; sourceTree = "<group>"; };
+		1602056305D4B93BC848E474114C67BD /* ABNetworkRequestFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABNetworkRequestFormatter.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABNetworkRequestFormatter.h; sourceTree = "<group>"; };
+		237339AB83E1FF54478F58F1CF22F84E /* ABCookieMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABCookieMatcher.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABCookieMatcher.h; sourceTree = "<group>"; };
+		29E716692B89C3E7E485826F3A403527 /* ABProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABProduct.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABProduct.h; sourceTree = "<group>"; };
+		2D7842165FB17BA7027B590E6CE8E911 /* Pods-AirbridgeSampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AirbridgeSampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		2F410F9ED4C575705B2F54AF2193E6BF /* ABIntegration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABIntegration.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABIntegration.h; sourceTree = "<group>"; };
+		32ABEB1238F4551EE2258A1AA5842559 /* Pods-AirbridgeSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AirbridgeSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		33B9DE00ABD5552BEABDA9D0B791D47D /* Pods-AirbridgeSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AirbridgeSampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		3744FF88B679A83A534453AF239DFF7D /* ABLogManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABLogManager.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABLogManager.h; sourceTree = "<group>"; };
+		3946021416935A73BA0BAE960C5F14F6 /* ABRouting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABRouting.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABRouting.h; sourceTree = "<group>"; };
+		55BEAF1BDA4ECCE13FB41BA5928CA79F /* Pods-AirbridgeSampleApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AirbridgeSampleApp-frameworks.sh"; sourceTree = "<group>"; };
+		5FF0F3EBD5545B7CB88B913E3DF3FB2E /* AirBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AirBridge.framework; path = AirBridge_Files/AirBridge.framework; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6A655515C91F7EF505168562824FC802 /* Pods-AirbridgeSampleApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AirbridgeSampleApp-dummy.m"; sourceTree = "<group>"; };
+		73229C72E18A9DF93AE495CEDC9D2B00 /* ABEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABEvent.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABEvent.h; sourceTree = "<group>"; };
+		89D185F66FCA6678EAC4256DAAD8972A /* ABConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABConstants.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABConstants.h; sourceTree = "<group>"; };
+		8BFF4BCB264C14F2198F09EA58BE5AA3 /* libPods-AirbridgeSampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-AirbridgeSampleApp.a"; path = "libPods-AirbridgeSampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E6F908300D5EFF20B112DACA112F6DC /* ABRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABRequestOperation.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABRequestOperation.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94577C4DAC6526AF25BBDEC01328AC04 /* Pods-AirbridgeSampleApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AirbridgeSampleApp-resources.sh"; sourceTree = "<group>"; };
+		94DDEC7651922138362A535CF3AAF4B5 /* ABUserEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABUserEvent.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABUserEvent.h; sourceTree = "<group>"; };
+		96A4BE7CA7F73AF0C78081F01E23BABB /* ABRequestOperationWorker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABRequestOperationWorker.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABRequestOperationWorker.h; sourceTree = "<group>"; };
+		A8BAE54FCEEC091555A3E2BD5CE74839 /* ABAppIndexing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAppIndexing.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABAppIndexing.h; sourceTree = "<group>"; };
+		BC08DA4EDF23F79F52237E883C232623 /* ABNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABNetworking.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABNetworking.h; sourceTree = "<group>"; };
+		BCA75B435565AEA2252BEF54B096DDCD /* ABAttribution.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABAttribution.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABAttribution.h; sourceTree = "<group>"; };
+		C354B1221E16C73E11763E75E205DFBD /* ABCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABCommon.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABCommon.h; sourceTree = "<group>"; };
+		C870AC6A2A4C2C4EB712A9B53527B55C /* ABUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABUser.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABUser.h; sourceTree = "<group>"; };
+		CC3A0F3272FCB7F656B42C3E6D2DD99A /* ABEcommerceEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABEcommerceEvent.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABEcommerceEvent.h; sourceTree = "<group>"; };
+		CFA11EAEDAD69327B195C9D7EBD578BF /* ABPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPage.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABPage.h; sourceTree = "<group>"; };
+		D8759360F36D0BB8EE2C47F21F7B1EDB /* AirBridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AirBridge.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/AirBridge.h; sourceTree = "<group>"; };
+		E918F0C69DD548BD99F694C7BD8193BB /* ABIntegration+Appboy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ABIntegration+Appboy.h"; path = "AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABIntegration+Appboy.h"; sourceTree = "<group>"; };
+		F35AAF61F7A70629051DDBF87D2F4370 /* ABNotificationCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABNotificationCenter.h; path = AirBridge_Files/AirBridge.framework/Versions/A/Headers/ABNotificationCenter.h; sourceTree = "<group>"; };
+		FEA71559A659DBB3C56587ADCBACD1D6 /* Pods-AirbridgeSampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AirbridgeSampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01BD8C50EC0E9EC27DC4351A7AC9D36C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				604D1885043FF0E3E847D0158D725801 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		129AF87A713725B6563A2FA1B0C9EADE /* Pods-AirbridgeSampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				FEA71559A659DBB3C56587ADCBACD1D6 /* Pods-AirbridgeSampleApp-acknowledgements.markdown */,
+				2D7842165FB17BA7027B590E6CE8E911 /* Pods-AirbridgeSampleApp-acknowledgements.plist */,
+				6A655515C91F7EF505168562824FC802 /* Pods-AirbridgeSampleApp-dummy.m */,
+				55BEAF1BDA4ECCE13FB41BA5928CA79F /* Pods-AirbridgeSampleApp-frameworks.sh */,
+				94577C4DAC6526AF25BBDEC01328AC04 /* Pods-AirbridgeSampleApp-resources.sh */,
+				32ABEB1238F4551EE2258A1AA5842559 /* Pods-AirbridgeSampleApp.debug.xcconfig */,
+				33B9DE00ABD5552BEABDA9D0B791D47D /* Pods-AirbridgeSampleApp.release.xcconfig */,
+			);
+			name = "Pods-AirbridgeSampleApp";
+			path = "Target Support Files/Pods-AirbridgeSampleApp";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				A87335B3B33B2F827AF2178BD3D0D4DA /* Pods */,
+				FC4876265835FDFDB4674C462F5AE44D /* Products */,
+				DF6A88AA4965356C85B8B71E4B369A8A /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A87335B3B33B2F827AF2178BD3D0D4DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9D947F641B4A1402784EA11B0817AC9 /* AirBridge */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A9D947F641B4A1402784EA11B0817AC9 /* AirBridge */ = {
+			isa = PBXGroup;
+			children = (
+				A8BAE54FCEEC091555A3E2BD5CE74839 /* ABAppIndexing.h */,
+				BCA75B435565AEA2252BEF54B096DDCD /* ABAttribution.h */,
+				C354B1221E16C73E11763E75E205DFBD /* ABCommon.h */,
+				89D185F66FCA6678EAC4256DAAD8972A /* ABConstants.h */,
+				237339AB83E1FF54478F58F1CF22F84E /* ABCookieMatcher.h */,
+				CC3A0F3272FCB7F656B42C3E6D2DD99A /* ABEcommerceEvent.h */,
+				73229C72E18A9DF93AE495CEDC9D2B00 /* ABEvent.h */,
+				2F410F9ED4C575705B2F54AF2193E6BF /* ABIntegration.h */,
+				E918F0C69DD548BD99F694C7BD8193BB /* ABIntegration+Appboy.h */,
+				3744FF88B679A83A534453AF239DFF7D /* ABLogManager.h */,
+				BC08DA4EDF23F79F52237E883C232623 /* ABNetworking.h */,
+				1602056305D4B93BC848E474114C67BD /* ABNetworkRequestFormatter.h */,
+				F35AAF61F7A70629051DDBF87D2F4370 /* ABNotificationCenter.h */,
+				09DAE31B503E0C5280B02EA5369F608A /* ABObserver.h */,
+				CFA11EAEDAD69327B195C9D7EBD578BF /* ABPage.h */,
+				29E716692B89C3E7E485826F3A403527 /* ABProduct.h */,
+				8E6F908300D5EFF20B112DACA112F6DC /* ABRequestOperation.h */,
+				96A4BE7CA7F73AF0C78081F01E23BABB /* ABRequestOperationWorker.h */,
+				3946021416935A73BA0BAE960C5F14F6 /* ABRouting.h */,
+				C870AC6A2A4C2C4EB712A9B53527B55C /* ABUser.h */,
+				94DDEC7651922138362A535CF3AAF4B5 /* ABUserEvent.h */,
+				D8759360F36D0BB8EE2C47F21F7B1EDB /* AirBridge.h */,
+				F20CC568B8FDF5AABF39F28F6A3F4D98 /* Frameworks */,
+			);
+			name = AirBridge;
+			path = AirBridge;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		DF6A88AA4965356C85B8B71E4B369A8A /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				129AF87A713725B6563A2FA1B0C9EADE /* Pods-AirbridgeSampleApp */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F20CC568B8FDF5AABF39F28F6A3F4D98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FF0F3EBD5545B7CB88B913E3DF3FB2E /* AirBridge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC4876265835FDFDB4674C462F5AE44D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8BFF4BCB264C14F2198F09EA58BE5AA3 /* libPods-AirbridgeSampleApp.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		420A2C973749BCA9020B677AE4FA5539 /* Pods-AirbridgeSampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5ECBE52D266903072A27A5A10583B8A5 /* Build configuration list for PBXNativeTarget "Pods-AirbridgeSampleApp" */;
+			buildPhases = (
+				71373C22A077357236A80060B9D73642 /* Sources */,
+				01BD8C50EC0E9EC27DC4351A7AC9D36C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-AirbridgeSampleApp";
+			productName = "Pods-AirbridgeSampleApp";
+			productReference = 8BFF4BCB264C14F2198F09EA58BE5AA3 /* libPods-AirbridgeSampleApp.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = FC4876265835FDFDB4674C462F5AE44D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				420A2C973749BCA9020B677AE4FA5539 /* Pods-AirbridgeSampleApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71373C22A077357236A80060B9D73642 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4EB6475B464A1F4BB27E0761063A89F /* Pods-AirbridgeSampleApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		26F954BA177A9A46FFFD4E23ED11D67A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		2C42CFEAB60F525268B4CAB9F72E3808 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32ABEB1238F4551EE2258A1AA5842559 /* Pods-AirbridgeSampleApp.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6840B82862ABEA567040C6541F2D2AC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33B9DE00ABD5552BEABDA9D0B791D47D /* Pods-AirbridgeSampleApp.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2BF6D6731C31DE69900B7B24E6F0445 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2BF6D6731C31DE69900B7B24E6F0445 /* Debug */,
+				26F954BA177A9A46FFFD4E23ED11D67A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5ECBE52D266903072A27A5A10583B8A5 /* Build configuration list for PBXNativeTarget "Pods-AirbridgeSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C42CFEAB60F525268B4CAB9F72E3808 /* Debug */,
+				6840B82862ABEA567040C6541F2D2AC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

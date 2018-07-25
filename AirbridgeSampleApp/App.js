@@ -10,6 +10,12 @@ import React, {Component} from 'react';
 import {AppState, Platform, StyleSheet, Text, View} from 'react-native';
 import { Button } from 'react-native';
 
+
+// import AirbridgeApi from 'react-native-airbridge-bridge';
+
+const AirbridgeApi = require('react-native-airbridge-bridge');
+
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -19,16 +25,15 @@ const instructions = Platform.select({
 
 type Props = {};
 
-const AirbridgeApi = require('react-native-airbridge-bridge');
-
 export default class App extends Component<Props> {
 
     constructor(props) {
       super(props);
       AirbridgeApi.init('ablog', '38acf1efa9fc4f0987173f5a76516eb1');
+
       console.log('instructor');
       //ReactAirbridge.getInstance('38acf1efa9fc4f0987173f5a76516eb1','ablog');
-        test = AirbridgeApi.makeUserObject(action='testAction', userId='testUserId');
+        // test = AirbridgeApi.makeUserObject(action='testAction', userId='testUserId');
         // AirbridgeApi.sendViewHome(test);
         // _l = [AirbridgeApi.makeProduct({productId: '1', price: 100}), AirbridgeApi.makeProduct({productId: '2', quantity: 3})];
         // AirbridgeApi.sendViewProductList('list-1', _l);
@@ -175,4 +180,3 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     }
 });
-
