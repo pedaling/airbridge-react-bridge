@@ -16,8 +16,8 @@ var AirbridgeBridgeApis = {
         AirbridgeBridge.setUser(userId);
     },
 
-    goal: function(category='', action='', label='', value=0) {
-        AirbridgeBridge.goal(category, action, label, value);
+    goal: function(category='', action='', label='', value=0, customAttributes={}) {
+        AirbridgeBridge.goal(category, action, label, value,customAttributes);
     },
 
     signIn: function(userObj) {
@@ -58,6 +58,9 @@ var AirbridgeBridgeApis = {
 
     setCustomSessionTimeOut: function(timeout_msecs=300) {
         AirbridgeBridge.setCustomSessionTimeOut(timeout_msecs);
+    },
+    setWifiInfoUsability: function(enable = 0) {
+        AirbridgeBridge.setWifiInfoUsability(enable);
     },
 
     deeplinkLaunched: function(uri) {

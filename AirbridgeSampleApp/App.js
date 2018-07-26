@@ -53,16 +53,16 @@ export default class App extends Component<Props> {
     }
 
     goal() {
-        AirbridgeApi.goal('category', 'action', 'label', 100);
+        AirbridgeApi.goal('category', 'action', 'label', 100,{'test':"ok"});
     }
 
     signIn() {
-        _user = AirbridgeApi.makeUserObject({action: 'testAction', userId: 'UserAB'});
+        _user = AirbridgeApi.makeUserObject({action: 'testAction', userId: 'UserAB',userEmail: 'test@a.com'});
         AirbridgeApi.signIn(_user);
     }
 
     signUp() {
-        _user = AirbridgeApi.makeUserObject({action: 'testAction', userId: 'UserAB'});
+        _user = AirbridgeApi.makeUserObject({action: 'testAction', userId: 'UserAB', userEmail: 'test@a.com'});
         AirbridgeApi.signUp(_user);
     }
 
@@ -101,6 +101,10 @@ export default class App extends Component<Props> {
     setCustomSessionTimeOut() {
         AirbridgeApi.setCustomSessionTimeOut(100);
     }
+    setWifiInfoUsability() {
+        AirbridgeApi.setWifiInfoUsability(0);
+    }
+
 
     deeplinkLaunched() {
         AirbridgeApi.deeplinkLaunched('http://deeplink?q=123');
@@ -150,7 +154,9 @@ export default class App extends Component<Props> {
                     <Button onPress={this.expireUser} title="logout"/><View style={styles.buttonPad} />
                     <Button onPress={this.setCustomSessionTimeOut} title="Session timeout"/>
                 </View>
+
                 <View style={styles.buttonContainer}>
+                    <Button onPress={this.setWifiInfoUsability} title="set WifiInfoUsability"/>
                     <Button onPress={this.deeplinkLaunched} title="deeplink"/>
                 </View>
             </View>

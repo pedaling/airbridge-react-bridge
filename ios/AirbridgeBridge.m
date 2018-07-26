@@ -32,7 +32,7 @@ RCT_EXPORT_METHOD(setUser:(NSString *)userID){
     [[AirBridge instance] setUser:userID];
 }
 
-RCT_EXPORT_METHOD(goal:(NSString*)category action:(NSString*)action label:(NSString*)label value:(nonnull NSNumber*)value customAttributes:(NSDictionary*)customAttributes){
+RCT_EXPORT_METHOD(goal:(NSString*)category action:(nullable NSString*)action label:(nullable NSString*)label value:(nonnull NSNumber*)value customAttributes:(nullable NSDictionary*)customAttributes){
     [[AirBridge instance] goalWithCategory:category action:action label:label value:value customAttributes:customAttributes];
 }
 
@@ -81,37 +81,43 @@ RCT_EXPORT_METHOD(sendViewHome){
 
 //
 RCT_EXPORT_METHOD(sendViewProductList:(NSString*)listID products:(NSArray*)products){
-    
-    ABEcommerceEvent *ecommerceEvent = [[ABEcommerceEvent alloc] initWithProducts:products];
-    ecommerceEvent.productListID = listID;
-    [ecommerceEvent sendViewProductList];
+  
+  NSArray<ABProduct*> * abProducts = [self getABProductsFromProducts:products];
+
+   ABEcommerceEvent *ecommerceEvent = [[ABEcommerceEvent alloc] initWithProducts:abProducts];
+   ecommerceEvent.productListID = listID;
+   [ecommerceEvent sendViewProductList];
 }
 
 RCT_EXPORT_METHOD(sendViewSearchResult:(NSString*)query products:(NSArray*)products){
-    
-    ABEcommerceEvent *ecommerceEvent = [[ABEcommerceEvent alloc] initWithProducts:products];
+  
+    NSArray<ABProduct*> * abProducts = [self getABProductsFromProducts:products];
+
+    ABEcommerceEvent *ecommerceEvent = [[ABEcommerceEvent alloc] initWithProducts:abProducts];
     ecommerceEvent.query = query;
     [ecommerceEvent sendViewProductList];
 }
 
 RCT_EXPORT_METHOD(sendViewProductDetail:(NSDictionary*)product){
-    
-    ABEcommerceEvent *ecommerceEvent = [[ABEcommerceEvent alloc] initWithProducts:@[product]];
+  
+    ABProduct * abProduct = [self getABProduct:product];
+  
+    ABEcommerceEvent *ecommerceEvent = [[ABEcommerceEvent alloc] initWithProducts:@[abProduct]];
     [ecommerceEvent sendViewProductDetail];
 }
 
-RCT_EXPORT_METHOD(sendAddToCart:(NSDictionary*) productDict cartID:(NSString*)cartID currency:(NSString*) currency totalValue:(NSNumber*) totalValue){
+RCT_EXPORT_METHOD(sendAddToCart:(NSDictionary*) productDict cartID:(NSString*)cartID currency:(NSString*) currency totalValue:(nonnull NSNumber*) totalValue){
     
     ABProduct * abProduct = [self getABProduct:productDict];
     
     ABEcommerceEvent *ecommerceEvent = [[ABEcommerceEvent alloc] initWithProducts:@[abProduct]];
     ecommerceEvent.cartID = cartID;
     ecommerceEvent.eventValue = totalValue;
-    
+  
     [ecommerceEvent sendAddProductToCart];
 }
 
-RCT_EXPORT_METHOD(sendCompleteOrder:(NSArray*)products transactionID:(NSString*)transsactionID isInAppPurchase:(BOOL)isInAppPurchase currency:(NSString*) currency totalValue:(NSNumber*) totalValue){
+RCT_EXPORT_METHOD(sendCompleteOrder:(NSArray*)products transactionID:(NSString*)transsactionID isInAppPurchase:(BOOL)isInAppPurchase currency:(NSString*) currency totalValue:(nonnull NSNumber*) totalValue){
     
     NSMutableArray * abProducts = [[NSMutableArray alloc] init];
     for(int i =0 ; i< [products count]; i++){
@@ -139,15 +145,17 @@ RCT_EXPORT_METHOD(setCustomSessionTimeOut:(NSInteger)secTime){
     [[AirBridge instance] setCustomSessionTimeOut:secTime];
 }
 
-RCT_EXPORT_METHOD(setWifiInfoUsability:(BOOL)enable){
-    
-    [[AirBridge instance] setWifiInfoUsability:enable];
+RCT_EXPORT_METHOD(setWifiInfoUsability:(nonnull NSNumber*)enable){
+  
+    [[AirBridge instance] setWifiInfoUsability: [enable boolValue]];
 }
 
 RCT_EXPORT_METHOD(deeplinkLaunched:(NSURL*)url){
     
     [[AirBridge instance] handleURL:url];
 }
+
+#pragma mark - method
 
 -(ABUser*) getABUser:(NSDictionary*) userDict{
     
@@ -166,7 +174,7 @@ RCT_EXPORT_METHOD(deeplinkLaunched:(NSURL*)url){
     NSString * productID = [RCTConvert NSString:productDict[@"productId"]];
     NSString * name = [RCTConvert NSString:productDict[@"name"]];
     NSNumber * price = [RCTConvert NSNumber:productDict[@"price"]];
-    NSString * currency1 = [RCTConvert NSString:productDict[@"currecny"]];
+    NSString * currency1 = [RCTConvert NSString:productDict[@"currency"]];
     NSNumber * quantity = [RCTConvert NSNumber:productDict[@"quantity"]];
     NSNumber * positionInList = [RCTConvert NSNumber:productDict[@"positionInList"]];
     
@@ -179,6 +187,18 @@ RCT_EXPORT_METHOD(deeplinkLaunched:(NSURL*)url){
     abProduct.orderPosition = positionInList;
     
     return abProduct;
+}
+
+-(NSArray<ABProduct*>*) getABProductsFromProducts:(NSArray*) products{
+ 
+  NSMutableArray<ABProduct*> * abProducts = [[NSMutableArray alloc] init];
+  
+  for(int i =0 ; i< [products count] ; i++){
+    ABProduct * abProduct = [self getABProduct:products[i]];
+    [abProducts addObject:abProduct];
+  }
+  
+  return abProducts;
 }
 
 @end
