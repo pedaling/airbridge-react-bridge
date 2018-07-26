@@ -105,7 +105,6 @@ export default class App extends Component<Props> {
         AirbridgeApi.setWifiInfoUsability(0);
     }
 
-
     deeplinkLaunched() {
         AirbridgeApi.deeplinkLaunched('http://deeplink?q=123');
     }
@@ -124,6 +123,35 @@ export default class App extends Component<Props> {
         }
         console.log('State changed' + nextAppState);
         this.setState({appState: nextAppState});
+    }
+
+    //test
+    test1(){
+
+      _user = AirbridgeApi.makeUserObject({action: 'testAction', userId: 'UserAB',userEmail: 'test@a.com'});
+      var product1 = {productId: '1', price: 100 ,name:'airbloc', currency:'kRW',orderPosition: 1, quantity: 2};
+      var product2 = {productId: '2', quantity: 3};
+
+      _productList = [AirbridgeApi.makeProduct(product1), AirbridgeApi.makeProduct(product2)];
+
+      AirbridgeApi.init('ablog', '38acf1efa9fc4f0987173f5a76516eb1');
+      AirbridgeApi.setEmail('airbridge@ab180.co');
+      AirbridgeApi.setUser('UserAB');
+      AirbridgeApi.goal('category', 'action', 'label', 100,{'test':"ok"});
+      AirbridgeApi.signIn(_user);
+      AirbridgeApi.signUp(_user);
+      AirbridgeApi.sendViewHome();
+      AirbridgeApi.sendViewProductList('ListID-123', _productList);
+      AirbridgeApi.sendViewSearchResult('Query-123', _productList);
+      AirbridgeApi.sendViewProductDetail(AirbridgeApi.makeProduct({productId: '1', currency: 'KRW', price: 100}));
+      AirbridgeApi.sendAddToCart(AirbridgeApi.makeProduct({productId: '1', currency: 'KRW', price: 100}),
+          cartId='Cart-123', currency='KRW', totalValue=10000);
+      AirbridgeApi.sendCompleteOrder(_productList, 'Transaction-123', true, 'KRW', 10000);
+      AirbridgeApi.expireUser();
+      AirbridgeApi.setCustomSessionTimeOut(100);
+      AirbridgeApi.setWifiInfoUsability(0);
+      AirbridgeApi.deeplinkLaunched('http://deeplink?q=123');
+
     }
 
     render() {
@@ -158,6 +186,9 @@ export default class App extends Component<Props> {
                 <View style={styles.buttonContainer}>
                     <Button onPress={this.setWifiInfoUsability} title="set WifiInfoUsability"/>
                     <Button onPress={this.deeplinkLaunched} title="deeplink"/>
+                </View>
+                <View style={styles.buttonContainer}>
+                    <Button onPress={this.test1} title="test1"/>
                 </View>
             </View>
     );

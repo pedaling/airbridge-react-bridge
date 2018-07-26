@@ -99,7 +99,7 @@ var AirbridgeBridgeApis = {
      * @returns {{productId: string, name: string, currency: string, price: number, quantity: number, positionInList: number}}
      */
 
-    makeProduct: function(product) {
+  makeProduct: function(product) {
         return {
             productId: product['productId'] || '',
             name: product['name'] || '',
