@@ -129,7 +129,7 @@ export default class App extends Component<Props> {
     test1(){
 
       _user = AirbridgeApi.makeUserObject({action: 'testAction', userId: 'UserAB',userEmail: 'test@a.com'});
-      var product1 = {productId: '1', price: 100 ,name:'airbloc', currency:'kRW',orderPosition: 1, quantity: 2};
+      var product1 = {productId: '1', price: 100 ,name:'airbloc', currency:'KRW',positionInList: 1, quantity: 2};
       var product2 = {productId: '2', quantity: 3};
 
       _productList = [AirbridgeApi.makeProduct(product1), AirbridgeApi.makeProduct(product2)];
@@ -143,13 +143,13 @@ export default class App extends Component<Props> {
       AirbridgeApi.sendViewHome();
       AirbridgeApi.sendViewProductList('ListID-123', _productList);
       AirbridgeApi.sendViewSearchResult('Query-123', _productList);
-      AirbridgeApi.sendViewProductDetail(AirbridgeApi.makeProduct({productId: '1', currency: 'KRW', price: 100}));
-      AirbridgeApi.sendAddToCart(AirbridgeApi.makeProduct({productId: '1', currency: 'KRW', price: 100}),
+      AirbridgeApi.sendViewProductDetail(AirbridgeApi.makeProduct(product1));
+      AirbridgeApi.sendAddToCart(AirbridgeApi.makeProduct(product1),
           cartId='Cart-123', currency='KRW', totalValue=10000);
       AirbridgeApi.sendCompleteOrder(_productList, 'Transaction-123', true, 'KRW', 10000);
       AirbridgeApi.expireUser();
       AirbridgeApi.setCustomSessionTimeOut(100);
-      AirbridgeApi.setWifiInfoUsability(0);
+      AirbridgeApi.setWifiInfoUsability(true);
       AirbridgeApi.deeplinkLaunched('http://deeplink?q=123');
 
     }
