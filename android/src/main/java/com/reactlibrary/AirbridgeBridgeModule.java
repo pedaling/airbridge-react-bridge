@@ -66,7 +66,7 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
                 .setLabel(label)
                 .setValue(value);
 
-        AirBridge.getTracker().send(event);
+        AirBridge.getTracker().sendEvent(event);
     }
 
     @ReactMethod
@@ -75,7 +75,7 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
                 .setUserId(o.getString("userId"))
                 .setUserEmail(o.getString("userEmail"));
 
-        AirBridge.getTracker().send(event);
+        AirBridge.getTracker().sendEvent(event);
     }
 
     @ReactMethod
@@ -84,13 +84,13 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
                 .setUserId(o.getString("userId"))
                 .setUserEmail(o.getString("userEmail"));
 
-        AirBridge.getTracker().send(event);
+        AirBridge.getTracker().sendEvent(event);
     }
 
     @ReactMethod
     public void sendViewHome() {
         HomeViewEvent event = new HomeViewEvent();
-        AirBridge.getTracker().send(event);
+        AirBridge.getTracker().sendEvent(event);
     }
 
     @ReactMethod
@@ -115,7 +115,7 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
         }
 
         ProductListViewEvent event = new ProductListViewEvent(listId, products);
-        AirBridge.getTracker().send(event);
+        AirBridge.getTracker().sendEvent(event);
     }
 
     @ReactMethod
@@ -137,7 +137,7 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
             products.add(_p);
         }
         SearchResultViewEvent event = new SearchResultViewEvent(query, products);
-        AirBridge.getTracker().send(event);
+        AirBridge.getTracker().sendEvent(event);
     }
 
     @ReactMethod
@@ -152,7 +152,7 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
         _p.setPositionInList(((Double)_o.get("positionInList")).intValue());
 
         ProductDetailsViewEvent event = new ProductDetailsViewEvent(_p);
-        AirBridge.getTracker().send(event);
+        AirBridge.getTracker().sendEvent(event);
     }
 
     @ReactMethod
@@ -172,7 +172,7 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
                 .setTotalValue(totalValue)
                 .addProduct(_p);
 
-        AirBridge.getTracker().send(event);
+        AirBridge.getTracker().sendEvent(event);
     }
 
     @ReactMethod
@@ -200,13 +200,13 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
                 .setCurrency(currency)
                 .setTotalValue(totalValue);
 
-        AirBridge.getTracker().send(event);
+        AirBridge.getTracker().sendEvent(event);
     }
 
     @ReactMethod
     public void expireUser() {
         SignOutEvent event = new SignOutEvent();
-        AirBridge.getTracker().send(event);
+        AirBridge.getTracker().sendEvent(event);
     }
 
 
@@ -222,6 +222,6 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
 //
     @ReactMethod
     public void deeplinkLaunched(String uri) {
-        AirBridge.getTracker().send(new DeepLinkLaunchEvent(uri));
+        AirBridge.getTracker().sendEvent(new DeepLinkLaunchEvent(uri));
     }
 }

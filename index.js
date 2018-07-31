@@ -16,8 +16,8 @@ var AirbridgeBridgeApis = {
         AirbridgeBridge.setUser(userId);
     },
 
-    goal: function(category='', action='', label='', value=0) {
-        AirbridgeBridge.goal(category, action, label, value);
+    goal: function(category='', action='', label='', value=0, customAttributes={}) {
+        AirbridgeBridge.goal(category, action, label, value,customAttributes);
     },
 
     signIn: function(userObj) {
@@ -56,9 +56,11 @@ var AirbridgeBridgeApis = {
         AirbridgeBridge.expireUser();
     },
 
-
     setCustomSessionTimeOut: function(timeout_msecs=300) {
         AirbridgeBridge.setCustomSessionTimeOut(timeout_msecs);
+    },
+    setWifiInfoUsability: function(enable = 0) {
+        AirbridgeBridge.setWifiInfoUsability(enable);
     },
 
     deeplinkLaunched: function(uri) {
@@ -96,14 +98,15 @@ var AirbridgeBridgeApis = {
      * }
      * @returns {{productId: string, name: string, currency: string, price: number, quantity: number, positionInList: number}}
      */
-    makeProduct: function(product) {
+
+  makeProduct: function(product) {
         return {
-            productId: product['productId'] ? product['productId'] : '',
-            name: product['name'] ? product['name'] : '',
-            currency: product['currency'] ? product['currency'] : 'KRW',
-            price: product['price'] ? product['price'] : 0,
-            quantity: product['quantity'] ? product['quantity'] : 0,
-            positionInList: product['positionInList'] ? product['positionInList'] : 0
+            productId: product['productId'] || '',
+            name: product['name'] || '',
+            currency: product['currency'] || 'KRW',
+            price: product['price'] || 0,
+            quantity: product['quantity'] || 0,
+            positionInList: product['positionInList'] || 0
         };
     },
 };
