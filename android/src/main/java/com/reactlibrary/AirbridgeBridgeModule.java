@@ -15,6 +15,9 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import android.app.Application;
+import android.app.Application.ActivityLifecycleCallbacks;
+import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
 
@@ -26,6 +29,7 @@ import io.airbridge.statistics.events.inapp.*;
 public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
+    private static boolean isInit = false;
 
     public AirbridgeBridgeModule(ReactApplicationContext reactContext) {
       super(reactContext);
@@ -39,14 +43,46 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void init(String appName, String appToken) {
+        if(isInit == true) {
+            return;
+        }
+
         Activity currentActivity = getCurrentActivity();
 
         AirBridge.setDebugMode(true);
         AirBridge.init(getReactApplicationContext(), appName, appToken);
 
-        Log.d("AirBridge", AirBridge.getLifecycleTracker().toString());
-        Log.d("AirBridge", currentActivity.toString());
-        AirBridge.getLifecycleTracker().onActivityCreated(currentActivity, null);
+        if(currentActivity != null) {
+        	AirBridge.getLifecycleTracker().onActivityCreated(currentActivity, null);
+    	} else {
+            Application app = (Application) getReactApplicationContext().getApplicationContext();
+
+            final ActivityLifecycleCallbacks callback = new ActivityLifecycleCallbacks() {
+                @Override
+                public void onActivityStarted(Activity activity) {
+                    AirBridge.getLifecycleTracker().onActivityCreated(activity, null);
+
+                    Application app = (Application) activity.getApplicationContext();
+                    app.unregisterActivityLifecycleCallbacks(this);
+                }
+
+                @Override
+                public void onActivityCreated(Activity activity, Bundle savedInstanceState) {}
+                @Override
+                public void onActivityResumed(Activity activity) {}
+                @Override
+                public void onActivityPaused(Activity activity) {}
+                @Override
+                public void onActivityStopped(Activity activity) {}
+                @Override
+                public void onActivitySaveInstanceState(Activity activity, Bundle outState) {}
+                @Override
+                public void onActivityDestroyed(Activity activity) {}
+            };
+            app.registerActivityLifecycleCallbacks(callback);
+    	}
+
+        isInit = true;
     }
 
     @ReactMethod
@@ -60,11 +96,19 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void goal(String category, String action, String label, int value) {
+    public void goal(String category, String action, String label, int value, ReadableMap o) {
         GoalEvent event = new GoalEvent(category)
                 .setAction(action)
                 .setLabel(label)
                 .setValue(value);
+
+        HashMap _o = o.toHashMap();
+        Iterator it = _o.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            event.setCustomAttribute(pair.getKey().toString(), pair.getValue());
+            it.remove();
+        }
 
         AirBridge.getTracker().sendEvent(event);
     }
@@ -110,8 +154,6 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
             _p.setPrice(((Double)_o.get("price")).floatValue());
             _p.setPositionInList(((Double)_o.get("positionInList")).intValue());
             products.add(_p);
-
-            Log.d("AirBridge", _o.toString());
         }
 
         ProductListViewEvent event = new ProductListViewEvent(listId, products);
@@ -215,11 +257,11 @@ public class AirbridgeBridgeModule extends ReactContextBaseJavaModule {
         AirBridge.setCustomSessionTimeOut(timeout_msecs);
     }
 
-    //    @ReactMethod
-//    public void setWifiInfoUsability() {
-//
-//    }
-//
+    @ReactMethod
+    public void setWifiInfoUsability(Boolean enabled) {
+        AirBridge.setWifiInfoEnable(enabled);
+    }
+
     @ReactMethod
     public void deeplinkLaunched(String uri) {
         AirBridge.getTracker().sendEvent(new DeepLinkLaunchEvent(uri));

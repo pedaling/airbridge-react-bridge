@@ -1,7 +1,10 @@
 
-import { NativeModules } from 'react-native';
+// import { NativeModules } from 'react-native';
+//
+// const { AirbridgeBridge } = NativeModules;
 
-const { AirbridgeBridge } = NativeModules;
+const AirbridgeBridge = require('react-native').NativeModules.AirbridgeBridge;
+
 
 var AirbridgeBridgeApis = {
     init: function(appName, appToken) {
@@ -56,10 +59,10 @@ var AirbridgeBridgeApis = {
         AirbridgeBridge.expireUser();
     },
 
-    setCustomSessionTimeOut: function(timeout_msecs=300) {
+    setCustomSessionTimeOut: function(timeout_msecs) {
         AirbridgeBridge.setCustomSessionTimeOut(timeout_msecs);
     },
-    setWifiInfoUsability: function(enable = 0) {
+    setWifiInfoUsability: function(enable) {
         AirbridgeBridge.setWifiInfoUsability(enable);
     },
 
@@ -79,8 +82,8 @@ var AirbridgeBridgeApis = {
      */
     makeUserObject: function(user) {
         return {
-            userId: user['userId'] ? user['userId'] : '',
-            userEmail: user['userEmail'] ? user['userEmail'] : ''
+            userId: user['userId'] || '',
+            userEmail: user['userEmail'] || ''
         };
     },
 

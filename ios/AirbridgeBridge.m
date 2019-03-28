@@ -17,35 +17,35 @@ RCT_EXPORT_MODULE();
 
 #pragma mark - Airbridge
 
-RCT_EXPORT_METHOD(init:(NSString *)appToken appName:(NSString*)appName ){
+RCT_EXPORT_METHOD(init:(nonnull NSString *)appName appToken:(nonnull NSString*)appToken ){
   
     [AirBridge getInstance:appToken appName:appName];
 }
 
-RCT_EXPORT_METHOD(setEmail:(NSString *)email){
+RCT_EXPORT_METHOD(setEmail:(nonnull NSString *)email){
 
     [[AirBridge instance] setEmail:email];
 }
 
-RCT_EXPORT_METHOD(setUser:(NSString *)userID){
+RCT_EXPORT_METHOD(setUser:(nonnull NSString *)userID){
 
     [[AirBridge instance] setUser:userID];
 }
 
-RCT_EXPORT_METHOD(goal:(NSString*)category action:(nullable NSString*)action label:(nullable NSString*)label value:(nonnull NSNumber*)value customAttributes:(nullable NSDictionary*)customAttributes){
+RCT_EXPORT_METHOD(goal:(nonnull NSString*)category action:(nullable NSString*)action label:(nullable NSString*)label value:(nonnull NSNumber*)value customAttributes:(nullable NSDictionary*)customAttributes){
   
     [[AirBridge instance] goalWithCategory:category action:action label:label value:value customAttributes:customAttributes];
 }
 
 
-RCT_EXPORT_METHOD(signIn:(NSDictionary*)user){
+RCT_EXPORT_METHOD(signIn:(nonnull NSDictionary*)user){
   
     ABUser * abUser = [self getABUser:user];
     ABUserEvent *userEvent = [[ABUserEvent alloc] initWithUser:abUser];
     [userEvent sendSignin];
 }
 
-RCT_EXPORT_METHOD(signUp:(NSDictionary*)user){
+RCT_EXPORT_METHOD(signUp:(nonnull NSDictionary*)user){
   
     ABUser * abUser = [self getABUser:user];
     ABUserEvent *userEvent = [[ABUserEvent alloc] initWithUser:abUser];
@@ -58,7 +58,7 @@ RCT_EXPORT_METHOD(sendViewHome){
     [ecommerceEvent sendViewHome];
 }
 
-RCT_EXPORT_METHOD(sendViewProductList:(NSString*)listID products:(NSArray*)products){
+RCT_EXPORT_METHOD(sendViewProductList:(nullable NSString*)listID products:(nonnull NSArray*)products){
   
   NSArray<ABProduct*> * abProducts = [self getABProductsFromProducts:products];
   ABEcommerceEvent *ecommerceEvent = [[ABEcommerceEvent alloc] initWithProducts:abProducts];
@@ -66,22 +66,22 @@ RCT_EXPORT_METHOD(sendViewProductList:(NSString*)listID products:(NSArray*)produ
   [ecommerceEvent sendViewProductList];
 }
 
-RCT_EXPORT_METHOD(sendViewSearchResult:(NSString*)query products:(NSArray*)products){
+RCT_EXPORT_METHOD(sendViewSearchResult:(nullable NSString*)query products:(nullable NSArray*)products){
   
     NSArray<ABProduct*> * abProducts = [self getABProductsFromProducts:products];
     ABEcommerceEvent *ecommerceEvent = [[ABEcommerceEvent alloc] initWithProducts:abProducts];
     ecommerceEvent.query = query;
-    [ecommerceEvent sendViewProductList];
+    [ecommerceEvent sendViewSearchResult];
 }
 
-RCT_EXPORT_METHOD(sendViewProductDetail:(NSDictionary*)product){
+RCT_EXPORT_METHOD(sendViewProductDetail:(nonnull NSDictionary*)product){
   
     ABProduct * abProduct = [self getABProduct:product];
     ABEcommerceEvent *ecommerceEvent = [[ABEcommerceEvent alloc] initWithProducts:@[abProduct]];
     [ecommerceEvent sendViewProductDetail];
 }
 
-RCT_EXPORT_METHOD(sendAddToCart:(NSDictionary*) productDict cartID:(NSString*)cartID currency:(NSString*) currency totalValue:(nonnull NSNumber*) totalValue){
+RCT_EXPORT_METHOD(sendAddToCart:(nonnull NSDictionary*) productDict cartID:(nullable NSString*)cartID currency:(nullable NSString*) currency totalValue:(nonnull NSNumber*) totalValue){
   
     ABProduct * abProduct = [self getABProduct:productDict];
     ABEcommerceEvent *ecommerceEvent = [[ABEcommerceEvent alloc] initWithProducts:@[abProduct]];
@@ -91,7 +91,7 @@ RCT_EXPORT_METHOD(sendAddToCart:(NSDictionary*) productDict cartID:(NSString*)ca
     [ecommerceEvent sendAddProductToCart];
 }
 
-RCT_EXPORT_METHOD(sendCompleteOrder:(NSArray*)products transactionID:(NSString*)transsactionID isInAppPurchase:(BOOL)isInAppPurchase currency:(NSString*) currency totalValue:(nonnull NSNumber*) totalValue){
+RCT_EXPORT_METHOD(sendCompleteOrder:(nonnull NSArray*)products transactionID:(nullable NSString*)transsactionID isInAppPurchase:(BOOL)isInAppPurchase currency:(nullable NSString*) currency totalValue:(nonnull NSNumber*) totalValue){
 
     NSMutableArray * abProducts = [[NSMutableArray alloc] init];
     for(int i =0 ; i< [products count]; i++){
@@ -106,7 +106,7 @@ RCT_EXPORT_METHOD(sendCompleteOrder:(NSArray*)products transactionID:(NSString*)
     ecommerceEvent.isInAppPurchase = isInAppPurchase;
     ecommerceEvent.eventValue = totalValue;
 
-    [ecommerceEvent sendAddProductToCart];
+    [ecommerceEvent sendCompleteOrder];
 }
 
 RCT_EXPORT_METHOD(expireUser){
@@ -125,7 +125,7 @@ RCT_EXPORT_METHOD(setWifiInfoUsability:(BOOL)enable){
     [[AirBridge instance] setWifiInfoUsability: enable];
 }
 
-RCT_EXPORT_METHOD(deeplinkLaunched:(NSString*)urlString){
+RCT_EXPORT_METHOD(deeplinkLaunched:(nonnull NSString*)urlString){
 
     NSURL *url = [RCTConvert NSURL:urlString];
     [[AirBridge instance] setDeeplink:url];

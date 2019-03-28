@@ -1,0 +1,3 @@
+rootProject.name = 'AirbridgeTests'
+
+include ':app'
